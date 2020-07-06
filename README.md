@@ -1,3 +1,4 @@
+
 # Query
 
 This is a simple library that is used to run MySql Commands (and SQL ... still in Testing).
@@ -8,6 +9,12 @@ It uses reflection in order to map the results to the specified Data type.
 ```C#
 DbDataReader result = Query.Create("SELECT Col_1, Col_2 FROM tbl")
                 .WithConnection(connection).ExecuteReader();
+```
+##### The method `Lazy()` enables [`yield return`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield)
+
+```C#
+DbDataReader result = Query.Create("SELECT Col_1, Col_2 FROM tbl")
+                .WithConnection(connection).Lazy().ExecuteReader();
 ```
 ##### Simple usage to return a `DbDataReader`  with passing in parameters
 ```C#
@@ -53,5 +60,3 @@ DataTable result = Query.Create("SELECT FirstName, LastName, Age FROM tbl")
                 .WithConnection(connection).ReaderIntoDataTable();
 ```
 ###### `ReaderIntoDataTable()` populates a `DataTable` with the results of the `ExecuteReader()`
-
-The method `Lazy()`  enables [Lazy Initialization](https://docs.microsoft.com/en-us/dotnet/framework/performance/lazy-initialization) on the `ExecuteReader()`
