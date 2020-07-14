@@ -52,7 +52,7 @@ string result = Query.Create("SELECT FirstName FROM tbl")
 ##### Simple usage execute a non query
 ```C#
 int result = Query.Create("UPDATE tbl SET FirstName = @FirstName").
-                .WithConnection(connection)WithParameters(new { FirstName = "Matthew" }).ExecuteNonQuery();
+                .WithConnection(connection).WithParameters(new { FirstName = "Matthew" }).ExecuteNonQuery();
 ```
 ##### Simple usage to return a `DataTable`
 ```C#
